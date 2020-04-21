@@ -31,3 +31,19 @@ Process:
 =======================================================================================================
             
             
+Multiprogramming – A computer running more than one program at a time (like running Excel and Firefox simultaneously).
+Multiprocessing – A computer using more than one CPU at a time.
+Multitasking – Tasks sharing a common resource (like 1 CPU).
+Multithreading is an extension of multitasking.
+
+========================================================================================================
+ RAM                                                                                    ROM
+ 
+ primary or main memory
+ volatile memory(losses data if power cuts)                                         non volatile memory(data exist any time)
+ 
+ data stored which cpu uses for programs                                             essenstial data for program to boot pc
+ 
+ dram and sram                                                                       prom,eprom,eeprom
+ 
+ =====================================================================================================================================
