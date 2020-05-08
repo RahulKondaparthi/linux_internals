@@ -1,0 +1,24 @@
+A process is nothing but program under execution.
+PID to identify the process.it is 2 to 32768, 1 is for init()
+
+Ex:
+                                               fork:
+                                               ====
+It creates a duplicate process in terms of memory area.(Data Segment Area). 
+i. means create two copies  process. One is with the same PID and a new child process with another PID.
+
+Syntax: pid_t fork(void);
+
+In fork() we dont know parent process execute first or child process first, it depends on kernel.
+
+                                              vfork():
+                                              ========
+ first child process will get executed and after that parent process will get executed. This can be monitored by printing PID of all processes on terminal by using getpid() call.
+
+Syntax – int vfork(void);
+                                              exec():
+                                              =========
+An exec function replaces the current process with a new process specified by the path or file argument. 
+Use exec functions to “hand off” execution of your program to another.
+
+int execl(const char *path, const char *arg, ..., (char  *) NULL */);
