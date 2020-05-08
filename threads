@@ -1,0 +1,28 @@
+Threads:
+            A thread is a lightweight process and forms the basic unit of CPU utilization. 
+            A process can perform more than one task at the same time by including multiple threads.
+
+            A thread has its own program counter, register set, and stack
+            A thread shares resources with other threads of the same process the code section, the data section, files and signals.
+
+pthread_t pthread_self(); to know present process pid
+
+pthread_t pthread_exit(); to terminate the thread
+
+ex:
+void *my_thread()
+{
+printf("rahul");
+return  null;
+}
+int main()
+{
+pthread_t tid;
+
+pthread_create(&tid,NULL,my_thread,NULL);
+pthread_join(tid,NULL);
+exit(0);
+
+}
+            
+            
