@@ -3,6 +3,8 @@ Message queues provide a reasonably easy and efficient way of passing data betwe
 advantage over named pipes that the message queue exists independently of both the sending and receiving processes, 
 which removes some of the difficulties that occur in synchronizing the opening and closing of named pipes.
 
+we can send data only of 1024 bytes.
+
 int msgctl(int msqid, int cmd, struct msqid_ds *buff);
 ---------------------------------------------------------------------------
 int msgget(key_t key, int msgflg);
