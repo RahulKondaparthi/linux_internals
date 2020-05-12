@@ -1,0 +1,73 @@
+Inter process communication:
+============================
+Process communicates with each other and with the kernel to co ordinate their activities.
+1)PIPES
+2)NAMED PIPES
+3)MESSAGE QUEUES
+4)SHARED MEMORY
+5)SOCKETS
+===========================================================================================================================================
+PIPES:
+======
+--->Pipes are used for communication between related processes(parent-child-sibling) on the same linux machine.
+
+// create piep---// #mknod my_pipe_name p
+int pipe(int file_descriptor[2]);
+
+--->Any data written to file_descriptor[1] can be read back from file_descriptor[0].
+---?FIFO based if we write 1 2 3to fd[1] then will come 1 2 3 from fd[0];
+Ex:
+int main()
+{
+	int res,fd[2],s;
+	char str[25],str1[25];
+	res=pipe(fd);
+	if(res==-1)
+	{
+		perror("\nPipe Creation Failed...\n");
+		exit(1);
+	}
+	else
+	{
+		printf("\nPipe Created Successfully...\n");
+		printf("\nDescriptors are:%d\t%d\n",fd[0],fd[1]);
+		switch(fork())
+		{
+			case -1:
+				perror("\nFork Failed....\n");
+				exit(1);
+			case 0:
+				wait(&s);
+				res=read(fd[0],str1,sizeof(str1));
+				if(res<0)
+				{
+					perror("\nRead Error...\n");
+					exit(1);
+				}
+				else
+				{
+					printf("\nChild Process\n");
+					printf("\nPipe Read Successfully\n");
+					printf("\nData:%s\n",str1);
+				}
+				break;
+			default:
+				printf("\nParent Process....\n");
+				printf("\nEnter Data To Be Written To Pipe\n");
+				gets(str);
+				res=write(fd[1],str,sizeof(str));
+				if(res<0)
+				{
+					perror("\nWrite Error Occurred\n");
+					exit(1);
+				}
+				else
+				{
+					printf("\nPipe Written Successfully..\n");
+				}
+				break;
+		}
+	}
+}
+
+
