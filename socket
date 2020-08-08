@@ -1,0 +1,42 @@
+A socket is communication mechanism that allows cliient/server systms either locally or single machine or across networks.
+ex:web pages,http,ftp generally use sockets.
+
+------->A server application creates a socket.Whcih like a File descriptor is a resource assigned server process and that process alone.
+
+server side API;s:
+
+Creating A Socket:
+=================
+           int socket(int domain,int type,int protocol);
+          
+           domain is a medium generally all linux m/c will use AF_INET( Internet networking);
+           Protocol:streams and datagrams
+                    stream socket:  provide a connection that is a sequenced and reliable two-way byte stream
+                    datagram socket: A datagram socket, specified by the type SOCK_DGRAM, doesn’t establish and maintain a connection. 
+                                     There is also a limit on the size of a datagram that can be sent
+           return file descriptor;
+Naming a socket:
+===============
+To make socket availble to other procees to use will give a name.A server prog wiil give a name to socket.
+          int bind(int socket,const sockaddr *address,size_t add_len);
+          
+Server listen mode:
+===================
+           int listen(int socket, int backlog);
+           a 5 very common backlog.
+Accepting Connections:
+=====================
+Once a server program has created and named a socket, it can wait for connections to be made to the socket by using the accept system call.
+          
+           int accept(int socket,struct sockaddr *address,size_t add_len);
+===========================================================================================================================================
+Client side API's
+
+Requesting Connections:
+======================
+Client programs connect to servers by establishing a connection between an unnamed socket and the server listen socket. They do this by calling connect.
+           int connect(int socket,const sockaddr *address,size_t add_len);
+Closing A socket:
+=================
+         int close(int sock);
+=================================================================================================================================================================
