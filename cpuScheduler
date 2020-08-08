@@ -1,0 +1,4 @@
+CPU scheduling is process of allowing one proccess to CPU for execution while another process execution is in hold due to wiating for resource or i/o.
+
+CPU dispatcher:
+Whnever CPU becomes idle,it should run the one of the process from ready queue,the dispatcher is the one modeule that gives the CPU control to process selcted by shot term  scheduler.
