@@ -1,0 +1,34 @@
+Why Semophers than message queues.
+---------------------------------
+Message queues is that we can send only 1024bytes of data.But in shared memory we can use more that depends on the physical memory of the sys.
+
+
+1)two urelated process can access the same logical memory.
+
+ very effievient way to communicate bw two process
+ 
+ it is a special range of address psace created by IPC and apperas in the address spcae pf process,So, Other process can "attach" the same memeory to their own address pscae.
+ 
+ 2)if one process writes into the memory it will be visible to all the process.
+ 
+ #include<shm.h> --library.
+ 
+ CREATE SHARED MEMORY:
+ ====================
+ using shared memoryget we can create th
+# int shmget(key_t key, size_t size, int shm_flag);
+
+ACCESS SHAREDMEM:
+=================
+using attach fucntion to access
+
+
+# void *shmat(int shm_id, const void *shm_addr, int shm_flag);
+
+DETATTACH:
+=========
+int shmdt(const void *shm_addr);
+
+DISADVANTAGE:
++++++++++++++
+No sychronized acees programmer need to synchronize access
