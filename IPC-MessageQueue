@@ -5,11 +5,12 @@ which removes some of the difficulties that occur in synchronizing the opening a
 
 we can send data only of 1024 bytes.
 
-int msgctl(int msqid, int cmd, struct msqid_ds *buff);
----------------------------------------------------------------------------
+CREATE MESSAGEQUEUE:
+====================
 int msgget(key_t key, int msgflg);
 
 msg_flag :A special bit defined by IPC_CREAT must be bitwise ORed with the permissions to create a new message queue. 
+
 The IPC_CREAT flag is silently ignored if the message queue already exists.
 ----------------------------------------------------------------------------
 int msgrcv(int msqid, void *msg_ptr, size_t msg_sz, long int msgtype, int msgflg);
