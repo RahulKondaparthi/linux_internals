@@ -1,0 +1,10 @@
+Multicore refers to a computer or processor that has more than one logical CPU core, and that can physically execute multiple instructions at the same time. 
+A computer's "core count" is the total number of cores the computer has: computers may have multiple processors, each of which might have multiple cores; 
+the core count is the total number of cores on all of the processors.
+
+
+
+Multithreading refers to a program that can take advantage of a multicore computer by running on more than one core at the same time. 
+In general, twice as many cores equals twice as much computing power (for programs that support multithreading) though some problems are limited by factors other than CPU usage;
+these problems will not experience gains that are as dramatic from multithreading.
+
